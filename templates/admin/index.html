@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIREBONan</title>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles/styles.css')}}"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <a href="#" class="logo"
+            >CIREBON<span style="color: orange">an</span></a
+          >
+          <div class="nav-items">
+            <ul class="menu">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#top_pariwisata">Top Pariwisata</a></li>
+              <li><a href="#top_kuliner">Top Kuliner</a></li>
+              <li><a href="#pesan">Pesan</a></li>
+            </ul>
+            <a href="{{ url_for('index2') }}" class="login-btn">Logout</a>
+          </div>
+          <div class="action-buttons">
+            <div class="tombol">
+              <img
+                src="static/images/burger-menu-svgrepo-com.svg"
+                alt="Menu"
+                id="hamburger-menu"
+              />
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section
+      id="home"
+      style="
+        background: url('/static/images/hero-image.jpg') no-repeat center
+          center/cover;
+        height: 100vh;
+      "
+    >
+      <div class="home-content">
+        <h1>Welcome to CIREBON<span style="color: orange">an</span></h1>
+        <p>Temukan tempat, makanan, dan budaya terbaik</p>
+      </div>
+    </section>
+
+    <section id="top_pariwisata">
+      <h2>TOP PARIWISATA</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="static/images/batu-lawang.jpg" alt="batu-lawang" />
+          <p>Batu Lawang</p>
+        </div>
+        <div class="card">
+          <img src="static/images/gua-sanyuragi2.jpg" alt="gua-sanyuragi" />
+          <p>Gua Sanyuragi</p>
+        </div>
+        <div class="card">
+          <img
+            src="static/images/keramat-kelangon.jpg"
+            alt="keramat-kelangon"
+          />
+          <p>Keramat Kelangon</p>
+        </div>
+        <div class="card">
+          <img
+            src="static/images/pantai-kejawanan2.jpg"
+            alt="pantai-kejawanan"
+          />
+          <p>Pantai Kejawanan</p>
+        </div>
+        <div class="card">
+          <img src="static/images/telaga-niren.jpg" alt="telaga-niren" />
+          <p>Telaga Niren</p>
+        </div>
+        <!-- <div class="card">
+          <img src="" alt="" />
+          <p></p>
+        </div>
+        <div class="card">
+          <img src="" alt="" />
+          <p></p>
+        </div> -->
+      </div>
+    </section>
+
+    <section id="top_kuliner">
+      <!-- <h2>TOP KULINER</h2>
+      <div class="table-container">
+        <div class="container mt-5">
+          <h1>Items</h1>
+          <a href="/add_item" class="btn btn-primary mb-3">Add New Item</a>
+          <br />
+
+          <table class="table table-bordered border-light">
+            <thead class="table-dark">
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for item in items %}
+              <tr>
+                <td>{{ item['name'] }}</td>
+                <td>{{ item['description'] }}</td>
+                <td>
+                  <a
+                    href="/edit/{{ item['id'] }}"
+                    class="btn btn-warning btn-sm"
+                    >Edit</a
+                  >
+                  <form
+                    action="/delete/{{ item['id'] }}"
+                    method="post"
+                    style="display: inline"
+                  >
+                    <button type="submit" class="btn btn-danger btn-sm">
+                      Delete
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+
+      <h2>TOP KULINER</h2>
+      <div class="table-container">
+        <div class="header-actions">
+          <a href="/add_item" class="btn">Add New Item</a>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nama Makanan</th>
+              <th>Deskripsi</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in items %}
+            <tr>
+              <td>{{ item['name'] }}</td>
+              <td>{{ item['description'] }}</td>
+              <td>
+                <a href="/edit/{{ item['id'] }}" class="btn-warning">Edit</a>
+                <form action="/delete/{{ item['id'] }}" method="post">
+                  <button type="submit" class="btn-danger">Delete</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- <section id="top_kuliner">
+      <h2>TOP KULINER</h2>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Nama Kuliner</th>
+            <th>Deskripsi</th>
+            <th>Harga</th>
+          </tr>
+          <tr>
+            <td>Empal Gentong</td>
+            <td>
+              Sup khas Cirebon dengan daging sapi yang dimasak dalam gentong
+              tanah liat.
+            </td>
+            <td>Rp 25.000</td>
+          </tr>
+          <tr>
+            <td>Nasi Jamblang</td>
+            <td>
+              Nasi yang disajikan dengan berbagai lauk-pauk, dibungkus daun
+              jati.
+            </td>
+            <td>Rp 20.000</td>
+          </tr>
+          <tr>
+            <td>Tahu Gejrot</td>
+            <td>
+              Tahu goreng yang disajikan dengan saus pedas manis khas Cirebon.
+            </td>
+            <td>Rp 10.000</td>
+          </tr>
+          <tr>
+            <td>Sate Kalong</td>
+            <td>Sate daging kerbau dengan rasa gurih manis yang khas.</td>
+            <td>Rp 15.000</td>
+          </tr>
+          <tr>
+            <td>Docang</td>
+            <td>
+              Makanan tradisional dengan lontong, sayuran, dan parutan kelapa.
+            </td>
+            <td>Rp 12.000</td>
+          </tr>
+        </table>
+      </div>
+    </section> -->
+
+    <section id="pesan">
+      <h2>Pesan Sekarang</h2>
+      <a href="/submit"></a>
+      <form action="/submit" method="post">
+        <div class="form-group">
+          <label for="name">Nama:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="contact">Kontak:</label>
+          <input type="text" id="contact" name="contact" required />
+
+          <label for="order-type">Pesanan:</label>
+          <select id="order-type" name="order-type" required>
+            <option value="" disabled selected>Pilih Pesanan</option>
+            <optgroup label="Pariwisata">
+              <option value="pantai_karang_sembung">Batu Lawang</option>
+              <option value="keraton_kasepuhan">Gua Sanyuragi</option>
+              <option value="cirebon_waterland">Keramat Kelangon</option>
+              <option value="bukit_gronggong">Pantai Kejawanan</option>
+              <option value="bukit_gronggong">Telaga Niren</option>
+            </optgroup>
+            <optgroup label="Kuliner">
+              <option value="empal_gentong">Empal Gentong</option>
+              <option value="nasi_jamblang">Nasi Jamblang</option>
+              <option value="tahu_gejrot">Tahu Gejrot</option>
+              <option value="sate_kalong">Sate Kalong</option>
+            </optgroup>
+          </select>
+        </div>
+        <button type="submit">Pesan</button>
+      </form>
+      <!-- Flash messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+      <ul>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+    </section>
+
+    <footer>
+      <p>&copy; 2024 CIREBONan</p>
+    </footer>
+
+    <script>
+      const tombol = document.getElementById("hamburger-menu");
+      const menu = document.querySelector(".menu");
+
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("#pesan form");
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const name = document.querySelector("#name").value;
+          const orderType = document.querySelector("#order-type").value;
+
+          alert(`Hi ${name}, pesanan Anda (${orderType}) sedang diproses.`);
+        });
+      });
+    </script>
+  </body>
+</html>
