@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from DB_Operations import fetch_all_items, insert_item, delete_item, fetch_item_by_id, update_item, validate_user
-
+from config import secret_key
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+app.config['SECRET_KEY'] = secret_key()
 
 @app.route('/')
 def index2():
@@ -35,7 +35,7 @@ def edit_item(id):
         return redirect(url_for('index'))
     if request.method == 'POST':
         name = request.form['name']
-        description = request.form['admin/description']
+        description = request.form['description']
 
         # Update Item
         update_item(id,name,description)
@@ -65,6 +65,10 @@ def login():
             error = "Invalid username or password."
 
     return render_template('admin/login.html', error=error)
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

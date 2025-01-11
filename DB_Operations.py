@@ -1,6 +1,6 @@
 import pymysql
 import pymysql.cursors
-from connector import connect
+from config import connect
 
 def fetch_all_items():
     connection = connect()
