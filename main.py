@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from DB_Operations import fetch_all_items, insert_item, delete_item, fetch_item_by_id, update_item, validate_user
 from config import secret_key
 
@@ -12,8 +12,13 @@ def index2():
 
 @app.route('/admin')
 def index():
-    items = fetch_all_items()
-    return render_template('admin/index.html',items=items)
+    # Memeriksa apakah pengguna sudah login
+    if 'username' not in session:
+        return redirect(url_for('login'))  # Arahkan ke login jika belum login
+
+    items = fetch_all_items()  # Ambil data yang diperlukan untuk halaman admin
+    return render_template('admin/index.html', items=items)
+
 
 @app.route('/add_item', methods=["POST","GET"])
 def add_item():
@@ -49,8 +54,6 @@ def delete_item_route(id):
     # flash('Item Berhasil Dihapus!')
     return redirect(url_for('index'))
 
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -60,14 +63,19 @@ def login():
 
         user = validate_user(username, password)
         if user:
-            return redirect('/admin')
+            # Menyimpan username di session setelah login berhasil
+            session['username'] = username
+            return redirect('/admin')  # Arahkan ke halaman admin
         else:
             error = "Invalid username or password."
 
-    return render_template('admin/login.html', error=error)
+    return render_template('login.html', error=error)
 
-
-
+@app.route('/logout')
+def logout():
+    session.pop('username', None)  # Menghapus username dari session
+    items = fetch_all_items()
+    return render_template('index.html', items=items)  # Arahkan kembali ke halaman login
 
 
 if __name__ == '__main__':

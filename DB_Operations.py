@@ -52,15 +52,14 @@ def delete_item(item_id):
     finally:
         connection.close()
 
-
 def validate_user(username, password):
     """Validasi username dan password dari database."""
-    connection = connect()
+    connection = connect()  # Ganti dengan fungsi untuk membuat koneksi ke database
     try:
         with connection.cursor() as cursor:
             sql = "SELECT * FROM users WHERE username = %s AND password = %s"
             cursor.execute(sql, (username, password))
-            user = cursor.fetchone()
+            user = cursor.fetchone()  # Mengambil user pertama yang ditemukan
             return user  # Mengembalikan user jika ditemukan
     finally:
         connection.close()

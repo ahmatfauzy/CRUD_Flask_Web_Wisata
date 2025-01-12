@@ -260,9 +260,9 @@ table td {
 table th {
   font-weight: bold;
   font-size: 20px;
-  color: #333;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px 8px 0 0;
+  color: #333333;
+  background-color: #f85700;
+  border-radius: 8px /* 8px 0 0 */;
 }
 
 table td {
@@ -350,6 +350,11 @@ footer p {
   font-weight: 400;
 }
 
+footer a {
+  text-decoration: underline;
+  color: white;
+}
+
 /*  */
 
 #top_kuliner {
@@ -411,7 +416,7 @@ th,
 td {
   padding: 10px;
   text-align: left;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
 }
 
 tbody tr:nth-child(even) {
@@ -490,7 +495,7 @@ tbody tr:hover {
   color: #000;
 }
 
-.login-btn{
+.login-btn {
   text-decoration: none;
   margin-top: 3px;
 }
