@@ -198,47 +198,6 @@ section {
   width: 30px;
   cursor: pointer;
 }
-/* 
-#top_pariwisata {
-  padding: 50px 20px;
-  text-align: center;
-  background-color: #f9f9f9;
-}
-
-#top_pariwisata h2 {
-  font-size: 36px;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-
-.card p {
-  padding: 15px;
-  font-size: 18px;
-  color: black;
-  font-weight: 600;
-} */
 
 #about {
   padding: 50px 20px;
@@ -302,13 +261,7 @@ footer a {
   padding: 20px;
 }
 
-/* 
-#top_kuliner h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
-} */
+
 
 .table-container {
   width: 100%;
@@ -448,9 +401,9 @@ tbody tr:hover {
 }
 
 #pesan table {
-  margin: 0 auto; /* Agar tabel berada di tengah */
+  margin: 0 auto; 
   /* width: 90%; */
-  border-collapse: collapse; /* Menyatukan border */
+  border-collapse: collapse; 
 }
 
 .pesan h2 {
@@ -458,59 +411,7 @@ tbody tr:hover {
   color: #333;
   margin-bottom: 20px;
 }
-/* 
-#pesan th,
-#pesan td {
-  
-  padding: 10px; 
-  text-align: left; 
-} */
 
-/* #pesan thead {
-  background-color: rgb(255, 98, 0); 
-  color: black; 
-}
-
-#pesan tbody tr:nth-child(even) {
-  background-color: #f9f9f9; 
-}
-
-#pesan tbody tr:nth-child(odd) {
-  background-color: #fff; 
-}
-
-#pesan tbody tr:hover {
-  background-color: #f1f1f1; 
-} */
-
-/* #pesan table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-#pesan thead {
-  background-color: rgb(255, 98, 0);
-  color: black;
-}
-
-#pesan th,
-#pesan td {
-  padding: 10px;
-  text-align: left;
-}
-
-#pesan tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-#pesan tbody tr:nth-child(odd) {
-  background-color: #fff;
-}
-
-#pesan tbody tr:hover {
-  background-color: #f1f1f1;
-} */
 #pesan h2 {
   font-size: 36px;
   color: #333;

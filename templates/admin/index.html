@@ -10,10 +10,6 @@
       href="{{url_for('static', filename='styles/styles.css')}}"
     />
     <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='styles/tabel-pesanan.css')}}"
-    />
-    <link
       rel="icon"
       href="{{url_for('static', filename='images/logo-CIREBONan.png')}}"
     />
@@ -29,7 +25,9 @@
             <ul class="menu">
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#rekomendasi_pariwisata">Rekomendasi Pariwisata</a></li>
+              <li>
+                <a href="#rekomendasi_pariwisata">Rekomendasi Pariwisata</a>
+              </li>
               <li><a href="#pesan">Pesan</a></li>
             </ul>
             <a href="{{ url_for('logout') }}" class="login-btn">Logout</a>
@@ -60,38 +58,6 @@
         <p>Pesona Budaya, Sejarah, dan Kuliner Khas yang Memikat.</p>
       </div>
     </section>
-
-    <!-- <section id="top_pariwisata">
-      <h2>TOP PARIWISATA</h2>
-      <div class="card-container">
-        <div class="card">
-          <img src="static/images/batu-lawang.jpg" alt="batu-lawang" />
-          <p>Batu Lawang</p>
-        </div>
-        <div class="card">
-          <img src="static/images/gua-sanyuragi2.jpg" alt="gua-sanyuragi" />
-          <p>Gua Sanyuragi</p>
-        </div>
-        <div class="card">
-          <img
-            src="static/images/keramat-kelangon.jpg"
-            alt="keramat-kelangon"
-          />
-          <p>Keramat Kelangon</p>
-        </div>
-        <div class="card">
-          <img
-            src="static/images/pantai-kejawanan2.jpg"
-            alt="pantai-kejawanan"
-          />
-          <p>Pantai Kejawanan</p>
-        </div>
-        <div class="card">
-          <img src="static/images/telaga-niren.jpg" alt="telaga-niren" />
-          <p>Telaga Niren</p>
-        </div>
-      </div>
-    </section> -->
 
     <section id="about">
       <h2>ABOUT</h2>
@@ -142,47 +108,6 @@
         </table>
       </div>
     </section>
-    <!-- 
-    <section id="pesan">
-      <h2>Pesan Sekarang</h2>
-      <a href="/submit"></a>
-      <form action="/submit" method="post">
-        <div class="form-group">
-          <label for="name">Nama:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="contact">Kontak:</label>
-          <input type="text" id="contact" name="contact" required />
-
-          <label for="order-type">Pesanan:</label>
-          <select id="order-type" name="order-type" required>
-            <option value="" disabled selected>Pilih Pesanan</option>
-            <optgroup label="Pariwisata">
-              <option value="pantai_karang_sembung">Batu Lawang</option>
-              <option value="keraton_kasepuhan">Gua Sanyuragi</option>
-              <option value="cirebon_waterland">Keramat Kelangon</option>
-              <option value="bukit_gronggong">Pantai Kejawanan</option>
-              <option value="bukit_gronggong">Telaga Niren</option>
-            </optgroup>
-            <optgroup label="Kuliner">
-              <option value="empal_gentong">Empal Gentong</option>
-              <option value="nasi_jamblang">Nasi Jamblang</option>
-              <option value="tahu_gejrot">Tahu Gejrot</option>
-              <option value="sate_kalong">Sate Kalong</option>
-            </optgroup>
-          </select>
-        </div>
-        <button type="submit">Pesan</button>
-      </form>
-      {% with messages = get_flashed_messages(with_categories=true) %} {% if
-      messages %}
-      <ul>
-        {% for category, message in messages %}
-        <li class="{{ category }}">{{ message }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %} {% endwith %}
-    </section> -->
 
     <section id="pesan">
       <h2>PESAN</h2>
@@ -190,7 +115,7 @@
         <table>
           <thead>
             <tr>
-              <th>ID</th>
+              <!-- <th>ID</th> -->
               <th>Nama</th>
               <th>Kontak</th>
               <th>Pesan</th>
@@ -199,7 +124,7 @@
           <tbody>
             {% if messages %} {% for message in messages %}
             <tr>
-              <td>{{ message.id }}</td>
+              <!-- <td>{{ message.id }}</td> -->
               <td>{{ message.name }}</td>
               <td>{{ message.contact }}</td>
               <td>{{ message.message }}</td>
@@ -228,8 +153,6 @@
       tombol.addEventListener("click", () => {
         menu.classList.toggle("aktif");
       });
-
-  
     </script>
   </body>
 </html>

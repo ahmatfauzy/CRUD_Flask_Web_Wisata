@@ -63,38 +63,6 @@
       </div>
     </section>
 
-    <!-- <section id="top_pariwisata">
-      <h2>TOP PARIWISATA</h2>
-      <div class="card-container">
-        <div class="card">
-          <img src="static/images/batu-lawang.jpg" alt="batu-lawang" />
-          <p>Batu Lawang</p>
-        </div>
-        <div class="card">
-          <img src="static/images/gua-sanyuragi2.jpg" alt="gua-sanyuragi" />
-          <p>Gua Sanyuragi</p>
-        </div>
-        <div class="card">
-          <img
-            src="static/images/keramat-kelangon.jpg"
-            alt="keramat-kelangon"
-          />
-          <p>Keramat Kelangon</p>
-        </div>
-        <div class="card">
-          <img
-            src="static/images/pantai-kejawanan2.jpg"
-            alt="pantai-kejawanan"
-          />
-          <p>Pantai Kejawanan</p>
-        </div>
-        <div class="card">
-          <img src="static/images/telaga-niren.jpg" alt="telaga-niren" />
-          <p>Telaga Niren</p>
-        </div>
-      </div>
-    </section> -->
-
     <section id="about">
       <h2>ABOUT</h2>
       <div class="about-content">
@@ -116,15 +84,11 @@
     <section id="rekomendasi_pariwisata">
       <h2>REKOMENDASI PARIWISATA</h2>
       <div class="table-container">
-        <!-- <div class="header-actions">
-          <a href="/add_item" class="btn">Add New Item</a>
-        </div> -->
         <table>
           <thead>
             <tr>
               <th>Wisata</th>
               <th>Deskripsi</th>
-              <!-- <th>Aksi</th> -->
             </tr>
           </thead>
           <tbody>
@@ -132,52 +96,12 @@
             <tr>
               <td>{{ item['name'] }}</td>
               <td>{{ item['description'] }}</td>
-              <!-- <td>
-                <a href="/edit/{{ item['id'] }}" class="btn-warning">Edit</a>
-                <form action="/delete/{{ item['id'] }}" method="post">
-                  <button type="submit" class="btn-danger">Delete</button>
-                </form>
-              </td> -->
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
     </section>
-
-    <!-- <section id="pesan">
-      <h2>Pesan Sekarang</h2>
-      <a href="/submit"></a>
-      <form action="/submit" method="post">
-        <div class="form-group">
-          <label for="name">Nama:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="contact">Kontak:</label>
-          <input type="text" id="contact" name="contact" required />
-
-          <label for="order-type">Pesanan:</label>
-          <select id="order-type" name="order-type" required>
-            <option value="" disabled selected>Pilih Pesanan</option>
-            <optgroup label="Pariwisata">
-              <option value="pantai_karang_sembung">Batu Lawang</option>
-              <option value="keraton_kasepuhan">Gua Sanyuragi</option>
-              <option value="cirebon_waterland">Keramat Kelangon</option>
-              <option value="bukit_gronggong">Pantai Kejawanan</option>
-              <option value="bukit_gronggong">Telaga Niren</option>
-            </optgroup>
-            <optgroup label="Kuliner">
-              <option value="empal_gentong">Empal Gentong</option>
-              <option value="nasi_jamblang">Nasi Jamblang</option>
-              <option value="tahu_gejrot">Tahu Gejrot</option>
-              <option value="sate_kalong">Sate Kalong</option>
-            </optgroup>
-          </select>
-        </div>
-        <button type="submit">Pesan</button>
-      </form>
-      
-    </section> -->
 
     <section id="pesan">
       <h2>Pesan Sekarang</h2>

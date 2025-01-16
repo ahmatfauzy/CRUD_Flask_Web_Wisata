@@ -17,8 +17,6 @@ def fetch_all_messages():
     try:
         connection = connect()
         cursor = connection.cursor()
-
-        # Query untuk mendapatkan semua pesan
         cursor.execute('SELECT * FROM messages')
         messages = cursor.fetchall()
 
@@ -74,8 +72,6 @@ def save_message(name, contact, message):
     try:
         connection = connect()
         cursor = connection.cursor()
-
-        # Simpan data pesan menggunakan placeholder `%s`
         cursor.execute('''
             INSERT INTO messages (name, contact, message)
             VALUES (%s, %s, %s)
@@ -91,12 +87,12 @@ def save_message(name, contact, message):
 
 def validate_user(username, password):
     """Validasi username dan password dari database."""
-    connection = connect()  # Ganti dengan fungsi untuk membuat koneksi ke database
+    connection = connect() 
     try:
         with connection.cursor() as cursor:
             sql = "SELECT * FROM users WHERE username = %s AND password = %s"
             cursor.execute(sql, (username, password))
-            user = cursor.fetchone()  # Mengambil user pertama yang ditemukan
-            return user  # Mengembalikan user jika ditemukan
+            user = cursor.fetchone() 
+            return user  
     finally:
         connection.close()
