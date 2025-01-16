@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px; 
+} */
+
 html {
   scroll-behavior: smooth;
 }
@@ -12,6 +18,10 @@ body {
   font-weight: 300;
   font-style: normal;
   font-variation-settings: "slnt" 0;
+}
+
+section {
+  padding: 50px 20px;
 }
 
 .navbar {
@@ -139,9 +149,13 @@ body {
     width: 100%;
   }
 
+  .login-btn {
+    margin-left: -120px;
+  }
+
   .tombol {
     display: block;
-    margin-right: 40px;
+    margin-left: -70px;
   }
 }
 
@@ -184,7 +198,7 @@ body {
   width: 30px;
   cursor: pointer;
 }
-
+/* 
 #top_pariwisata {
   padding: 50px 20px;
   text-align: center;
@@ -224,117 +238,44 @@ body {
   font-size: 18px;
   color: black;
   font-weight: 600;
-}
+} */
 
-#top_kuliner {
+#about {
   padding: 50px 20px;
-  background-color: orange;
-  color: white;
   text-align: center;
+  background-color: #f9f9f9;
 }
 
-#top_kuliner h2 {
+#about h2 {
   font-size: 36px;
-  margin-bottom: 30px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-/* Table Styling */
-.table-container {
+.about-content {
   max-width: 800px;
   margin: 0 auto;
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  color: white;
-}
-
-table th,
-table td {
-  padding: 15px 20px;
-  text-align: left;
-}
-
-table th {
-  font-weight: bold;
-  font-size: 20px;
-  color: #333333;
-  background-color: #f85700;
-  border-radius: 8px /* 8px 0 0 */;
-}
-
-table td {
   font-size: 18px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  color: #555;
+  line-height: 1.6;
+  text-align: justify;
 }
 
-/* Styling for Table Rows */
-table tr:nth-child(even) td {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-table tr:hover td {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Pesan Section */
-#pesan {
-  padding: 50px 20px;
-  background-color: white;
+.about-content strong {
   color: #333;
+  font-weight: bold;
+}
+
+#rekomendasi_pariwisata {
+  padding: 50px 20px;
+  background-color: orange;
+  color: white;
   text-align: center;
 }
 
-#pesan h2 {
+#rekomendasi_pariwisata h2 {
   font-size: 36px;
   margin-bottom: 30px;
-}
-
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-label {
-  font-size: 18px;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-input[type="text"],
-select {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-#pesan button[type="submit"] {
-  padding: 12px;
-  font-size: 18px;
-  color: white;
-  background-color: orange;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#pesan button[type="submit"]:hover {
-  background-color: rgb(223, 148, 10);
 }
 
 footer {
@@ -357,9 +298,10 @@ footer a {
 
 /*  */
 
-#top_kuliner {
+#rekomendasi_pariwisata {
   padding: 20px;
 }
+
 /* 
 #top_kuliner h2 {
   text-align: center;
@@ -408,7 +350,7 @@ table {
 }
 
 thead {
-  background-color: #343a40;
+  background-color: rgb(255, 98, 0);
   color: black;
 }
 
@@ -430,7 +372,7 @@ tbody tr:nth-child(odd) {
 tbody tr:hover {
   background-color: #f1f1f1;
 }
-/* 
+
 .btn-warning {
   background-color: #ffc107;
   color: #000;
@@ -454,7 +396,7 @@ tbody tr:hover {
 
 .btn-danger:hover {
   background-color: #c82333;
-} */
+}
 
 .btn-warning,
 .btn-danger {
@@ -487,15 +429,92 @@ tbody tr:hover {
   background-color: #c82333;
 }
 
-#top_kuliner form {
+#rekomendasi_pariwisata form {
   display: inline-block;
 }
 
-#top_kuliner td {
+#rekomendasi_pariwisata td {
   color: #000;
 }
 
 .login-btn {
   text-decoration: none;
-  margin-top: 3px;
+  /* margin-top: 3px; */
+}
+
+#pesan {
+  /* padding: 50px 20px;  */
+  background-color: #f9f9f9;
+}
+
+#pesan table {
+  margin: 0 auto; /* Agar tabel berada di tengah */
+  /* width: 90%; */
+  border-collapse: collapse; /* Menyatukan border */
+}
+
+.pesan h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+/* 
+#pesan th,
+#pesan td {
+  
+  padding: 10px; 
+  text-align: left; 
+} */
+
+/* #pesan thead {
+  background-color: rgb(255, 98, 0); 
+  color: black; 
+}
+
+#pesan tbody tr:nth-child(even) {
+  background-color: #f9f9f9; 
+}
+
+#pesan tbody tr:nth-child(odd) {
+  background-color: #fff; 
+}
+
+#pesan tbody tr:hover {
+  background-color: #f1f1f1; 
+} */
+
+/* #pesan table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#pesan thead {
+  background-color: rgb(255, 98, 0);
+  color: black;
+}
+
+#pesan th,
+#pesan td {
+  padding: 10px;
+  text-align: left;
+}
+
+#pesan tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#pesan tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+#pesan tbody tr:hover {
+  background-color: #f1f1f1;
+} */
+#pesan h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+  /* margin: auto; */
+  text-align: center;
 }

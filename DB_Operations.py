@@ -12,6 +12,23 @@ def fetch_all_items():
     finally:
         connection.close()
 
+def fetch_all_messages():
+    """Ambil semua pesan dari tabel messages."""
+    try:
+        connection = connect()
+        cursor = connection.cursor()
+
+        # Query untuk mendapatkan semua pesan
+        cursor.execute('SELECT * FROM messages')
+        messages = cursor.fetchall()
+
+        connection.close()
+        return messages
+    except Exception as e:
+        print(f"Error: {e}")
+        return []
+
+
 def insert_item(name,description):
     connection=connect()
     try:
@@ -51,6 +68,26 @@ def delete_item(item_id):
         return 1
     finally:
         connection.close()
+
+def save_message(name, contact, message):
+    """Simpan pesan ke database."""
+    try:
+        connection = connect()
+        cursor = connection.cursor()
+
+        # Simpan data pesan menggunakan placeholder `%s`
+        cursor.execute('''
+            INSERT INTO messages (name, contact, message)
+            VALUES (%s, %s, %s)
+        ''', (name, contact, message))
+
+        connection.commit()
+        connection.close()
+        return True
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
+
 
 def validate_user(username, password):
     """Validasi username dan password dari database."""

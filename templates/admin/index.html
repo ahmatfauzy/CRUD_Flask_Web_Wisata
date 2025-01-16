@@ -9,6 +9,14 @@
       rel="stylesheet"
       href="{{url_for('static', filename='styles/styles.css')}}"
     />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles/tabel-pesanan.css')}}"
+    />
+    <link
+      rel="icon"
+      href="{{url_for('static', filename='images/logo-CIREBONan.png')}}"
+    />
   </head>
   <body>
     <header>
@@ -20,8 +28,8 @@
           <div class="nav-items">
             <ul class="menu">
               <li><a href="#home">Home</a></li>
-              <li><a href="#top_pariwisata">Top Pariwisata</a></li>
-              <li><a href="#top_kuliner">Top Kuliner</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#rekomendasi_pariwisata">Rekomendasi Pariwisata</a></li>
               <li><a href="#pesan">Pesan</a></li>
             </ul>
             <a href="{{ url_for('logout') }}" class="login-btn">Logout</a>
@@ -49,11 +57,11 @@
     >
       <div class="home-content">
         <h1>Welcome to CIREBON<span style="color: orange">an</span></h1>
-        <p>Temukan tempat, makanan, dan budaya terbaik</p>
+        <p>Pesona Budaya, Sejarah, dan Kuliner Khas yang Memikat.</p>
       </div>
     </section>
 
-    <section id="top_pariwisata">
+    <!-- <section id="top_pariwisata">
       <h2>TOP PARIWISATA</h2>
       <div class="card-container">
         <div class="card">
@@ -82,63 +90,29 @@
           <img src="static/images/telaga-niren.jpg" alt="telaga-niren" />
           <p>Telaga Niren</p>
         </div>
-        <!-- <div class="card">
-          <img src="" alt="" />
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="" alt="" />
-          <p></p>
-        </div> -->
+      </div>
+    </section> -->
+
+    <section id="about">
+      <h2>ABOUT</h2>
+      <div class="about-content">
+        <p>
+          Selamat datang di <strong>CIREBONan</strong>, web informasi pariwisata
+          yang menghadirkan keindahan dan keunikan destinasi wisata di Cirebon.
+          Dari pesona alam yang memukau hingga warisan budaya yang kaya, kami
+          berkomitmen menjadi panduan Anda dalam mengeksplorasi keajaiban
+          Cirebon.
+        </p>
+        <p>
+          Temukan inspirasi perjalanan, rekomendasi tempat wisata, serta tips
+          menarik untuk menjadikan kunjungan Anda ke Cirebon penuh makna. Mari
+          bersama-sama merasakan keajaiban Cirebon yang memikat hati.
+        </p>
       </div>
     </section>
 
-    <section id="top_kuliner">
-      <!-- <h2>TOP KULINER</h2>
-      <div class="table-container">
-        <div class="container mt-5">
-          <h1>Items</h1>
-          <a href="/add_item" class="btn btn-primary mb-3">Add New Item</a>
-          <br />
-
-          <table class="table table-bordered border-light">
-            <thead class="table-dark">
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {% for item in items %}
-              <tr>
-                <td>{{ item['name'] }}</td>
-                <td>{{ item['description'] }}</td>
-                <td>
-                  <a
-                    href="/edit/{{ item['id'] }}"
-                    class="btn btn-warning btn-sm"
-                    >Edit</a
-                  >
-                  <form
-                    action="/delete/{{ item['id'] }}"
-                    method="post"
-                    style="display: inline"
-                  >
-                    <button type="submit" class="btn btn-danger btn-sm">
-                      Delete
-                    </button>
-                  </form>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div> -->
-
-      <h2>TOP KULINER</h2>
+    <section id="rekomendasi_pariwisata">
+      <h2>REKOMENDASI PARIWISATA</h2>
       <div class="table-container">
         <div class="header-actions">
           <a href="/add_item" class="btn">Add New Item</a>
@@ -146,7 +120,7 @@
         <table>
           <thead>
             <tr>
-              <th>Nama Makanan</th>
+              <th>Wisata</th>
               <th>Deskripsi</th>
               <th>Aksi</th>
             </tr>
@@ -168,55 +142,7 @@
         </table>
       </div>
     </section>
-
-    <!-- <section id="top_kuliner">
-      <h2>TOP KULINER</h2>
-      <div class="table-container">
-        <table>
-          <tr>
-            <th>Nama Kuliner</th>
-            <th>Deskripsi</th>
-            <th>Harga</th>
-          </tr>
-          <tr>
-            <td>Empal Gentong</td>
-            <td>
-              Sup khas Cirebon dengan daging sapi yang dimasak dalam gentong
-              tanah liat.
-            </td>
-            <td>Rp 25.000</td>
-          </tr>
-          <tr>
-            <td>Nasi Jamblang</td>
-            <td>
-              Nasi yang disajikan dengan berbagai lauk-pauk, dibungkus daun
-              jati.
-            </td>
-            <td>Rp 20.000</td>
-          </tr>
-          <tr>
-            <td>Tahu Gejrot</td>
-            <td>
-              Tahu goreng yang disajikan dengan saus pedas manis khas Cirebon.
-            </td>
-            <td>Rp 10.000</td>
-          </tr>
-          <tr>
-            <td>Sate Kalong</td>
-            <td>Sate daging kerbau dengan rasa gurih manis yang khas.</td>
-            <td>Rp 15.000</td>
-          </tr>
-          <tr>
-            <td>Docang</td>
-            <td>
-              Makanan tradisional dengan lontong, sayuran, dan parutan kelapa.
-            </td>
-            <td>Rp 12.000</td>
-          </tr>
-        </table>
-      </div>
-    </section> -->
-
+    <!-- 
     <section id="pesan">
       <h2>Pesan Sekarang</h2>
       <a href="/submit"></a>
@@ -248,7 +174,6 @@
         </div>
         <button type="submit">Pesan</button>
       </form>
-      <!-- Flash messages -->
       {% with messages = get_flashed_messages(with_categories=true) %} {% if
       messages %}
       <ul>
@@ -257,6 +182,36 @@
         {% endfor %}
       </ul>
       {% endif %} {% endwith %}
+    </section> -->
+
+    <section id="pesan">
+      <h2>PESAN</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Kontak</th>
+              <th>Pesan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if messages %} {% for message in messages %}
+            <tr>
+              <td>{{ message.id }}</td>
+              <td>{{ message.name }}</td>
+              <td>{{ message.contact }}</td>
+              <td>{{ message.message }}</td>
+            </tr>
+            {% endfor %} {% else %}
+            <tr>
+              <td colspan="4">Tidak ada pesan.</td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <footer>
@@ -274,18 +229,7 @@
         menu.classList.toggle("aktif");
       });
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const form = document.querySelector("#pesan form");
-
-        form.addEventListener("submit", (event) => {
-          event.preventDefault();
-
-          const name = document.querySelector("#name").value;
-          const orderType = document.querySelector("#order-type").value;
-
-          alert(`Hi ${name}, pesanan Anda (${orderType}) sedang diproses.`);
-        });
-      });
+  
     </script>
   </body>
 </html>

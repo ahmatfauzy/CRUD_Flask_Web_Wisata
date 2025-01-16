@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
-from DB_Operations import fetch_all_items, insert_item, delete_item, fetch_item_by_id, update_item, validate_user
-from config import secret_key
+from DB_Operations import fetch_all_items, insert_item, delete_item, fetch_item_by_id, update_item, validate_user, save_message, fetch_all_messages
+from config import secret_key,connect
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secret_key()
@@ -17,7 +17,8 @@ def index():
         return redirect(url_for('login'))  # Arahkan ke login jika belum login
 
     items = fetch_all_items()  # Ambil data yang diperlukan untuk halaman admin
-    return render_template('admin/index.html', items=items)
+    messages = fetch_all_messages()
+    return render_template('admin/index.html', items=items,messages=messages )
 
 
 @app.route('/add_item', methods=["POST","GET"])
@@ -53,6 +54,42 @@ def delete_item_route(id):
     delete_item(id)
     # flash('Item Berhasil Dihapus!')
     return redirect(url_for('index'))
+
+@app.route('/submit', methods=['POST'])
+def submit_message():
+    if request.method == 'POST':
+        # Ambil data dari form
+        name = request.form['name']
+        contact = request.form['contact']
+        message = request.form['message']
+        
+        # Simpan ke database
+        success = save_message(name, contact, message)
+        
+        if success:
+            flash('Pesan berhasil dikirim!', 'success')
+        else:
+            flash('Gagal mengirim pesan. Coba lagi.', 'danger')
+        
+        return redirect(url_for('index2'))
+    
+
+@app.route('/messages')
+def view_messages():
+    """Tampilkan semua pesan dari database."""
+    try:
+        connection = connect()
+        cursor = connection.cursor()
+
+        # Query untuk mendapatkan semua pesan
+        cursor.execute('SELECT * FROM messages')
+        messages = cursor.fetchall()
+
+        connection.close()
+        return render_template('admin/index.html', messages=messages)
+    except Exception as e:
+        print(f"Error: {e}")
+        return "Gagal mengambil pesan."
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
